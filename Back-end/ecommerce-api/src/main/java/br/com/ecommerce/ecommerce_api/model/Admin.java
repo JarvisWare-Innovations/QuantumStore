@@ -1,17 +1,15 @@
 package br.com.ecommerce.ecommerce_api.model;
 
 import jakarta.persistence.*;
-import org.springframework.cglib.core.Local;
-
 import java.time.LocalDate;
 
 @Entity
 public class Admin {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_admin")
-    private long id_admin;
+    private long id;
 
     @Column(name = "nome_admin", nullable = false)
     private String nome;
@@ -23,7 +21,7 @@ public class Admin {
     private String senha;
 
     @Column(name = "telefone", nullable = false)
-    private Integer telefone;
+    private String telefone;
 
     @Column(name = "data_cadastro", nullable = false)
     private LocalDate dataCadastro;
@@ -35,11 +33,11 @@ public class Admin {
     private Boolean ativo;
 
     public long getId_admin() {
-        return id_admin;
+        return id;
     }
 
     public void setId_admin(long id_admin) {
-        this.id_admin = id_admin;
+        this.id = id;
     }
 
     public String getNome() {
@@ -66,11 +64,11 @@ public class Admin {
         this.senha = senha;
     }
 
-    public Integer getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Integer telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -101,7 +99,7 @@ public class Admin {
     @Override
     public String toString() {
         return "Admin{" +
-                "id_admin=" + id_admin +
+                "id =" + id +
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
