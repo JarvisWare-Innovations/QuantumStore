@@ -2,7 +2,6 @@ package br.com.ecommerce.ecommerce_api.model;
 
 import jakarta.persistence.*;
 
-
 @Entity
 @Table(name = "tb_itens_pedido")
 public class ItemPedido {
@@ -14,9 +13,10 @@ public class ItemPedido {
     private int quantidade;
     private double precoUnitario;
 
-    public ItemPedido(){}
+    public ItemPedido() {
+    }
 
-    public ItemPedido(int quantidade, double precoUnitario){
+    public ItemPedido(int quantidade, double precoUnitario) {
         this.quantidade = quantidade;
         this.precoUnitario = precoUnitario;
     }
@@ -47,16 +47,16 @@ public class ItemPedido {
         this.precoUnitario = precoUnitario;
     }
 
-    public double calcularSubtotal(){
+    public double calcularSubtotal() {
         return quantidade * precoUnitario;
     }
 
     @Override
     public String toString() {
         return "ItemPedido{" +
-        "quantidade=" + quantidade + 
-        ", precoUnitario=" + precoUnitario +
-        ", subtotal= " + calcularSubtotal() +
-        '}';
+                "quantidade=" + quantidade +
+                ", precoUnitario=" + precoUnitario +
+                ", subtotal= " + calcularSubtotal() +
+                '}';
     }
 }
