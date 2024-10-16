@@ -1,5 +1,10 @@
 package br.com.ecommerce.ecommerce_api.model;
 
+/**
+ * @author Kadu Ribeiro
+ *
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 

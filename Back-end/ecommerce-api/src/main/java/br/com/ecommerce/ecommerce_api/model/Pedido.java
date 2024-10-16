@@ -1,5 +1,11 @@
 package br.com.ecommerce.ecommerce_api.model;
 
+/**
+ * @author Kadu Ribeiro
+ *
+ */
+
+
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
