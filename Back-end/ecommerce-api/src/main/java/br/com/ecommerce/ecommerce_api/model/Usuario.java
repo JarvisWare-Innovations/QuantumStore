@@ -9,14 +9,14 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class Admin {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_admin")
+    @Column(name = "id")
     private long id;
 
-    @Column(name = "nome_admin", nullable = false)
+    @Column(name = "nome", nullable = false)
     private String nome;
 
     @Column(name = "email", nullable = false)
@@ -28,20 +28,40 @@ public class Admin {
     @Column(name = "telefone", nullable = false)
     private String telefone;
 
+    @Column(name = "CPF", nullable = false, length = 11)
+    private String cpf;
+
+    @Column(name = "endereco", nullable = false, length = 255)
+    private String endereco;
+
     @Column(name = "data_cadastro", nullable = false)
     private LocalDate dataCadastro;
 
-    @Column(name = "ultimo_acesso", nullable = false)
-    private LocalDate ultimoAcesso;
-
-    @Column (name = "ativo", nullable = false)
+    @Column(name = "ativo", nullable = false)
     private Boolean ativo;
 
-    public long getId_admin() {
+
+    public Usuario() {
+        this.dataCadastro = LocalDate.now();
+        this.ativo = true;
+    }
+
+    public Usuario(String nome, String email, String senha, String telefone, String cpf, String endereco) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.telefone = telefone;
+        this.cpf = cpf;
+        this.endereco = endereco;
+        this.dataCadastro = LocalDate.now();
+        this.ativo = true;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId_admin(long id_admin) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -77,20 +97,28 @@ public class Admin {
         this.telefone = telefone;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
     public LocalDate getDataCadastro() {
         return dataCadastro;
     }
 
     public void setDataCadastro(LocalDate dataCadastro) {
         this.dataCadastro = dataCadastro;
-    }
-
-    public LocalDate getUltimoAcesso() {
-        return ultimoAcesso;
-    }
-
-    public void setUltimoAcesso(LocalDate ultimoAcesso) {
-        this.ultimoAcesso = ultimoAcesso;
     }
 
     public Boolean getAtivo() {
@@ -103,14 +131,15 @@ public class Admin {
 
     @Override
     public String toString() {
-        return "Admin{" +
-                "id =" + id +
+        return "Usuario{" +
+                "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
-                ", telefone=" + telefone +
+                ", telefone='" + telefone + '\'' +
+                ", cpf=" + cpf +
+                ", endereco='" + endereco + '\'' +
                 ", dataCadastro=" + dataCadastro +
-                ", ultimoAcesso=" + ultimoAcesso +
                 ", ativo=" + ativo +
                 '}';
     }

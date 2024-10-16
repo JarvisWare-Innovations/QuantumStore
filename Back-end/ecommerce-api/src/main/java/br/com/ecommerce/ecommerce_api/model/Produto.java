@@ -1,8 +1,11 @@
 package br.com.ecommerce.ecommerce_api.model;
 
+/**
+ * @author Nícolas Santos
+ *
+ */
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity
