@@ -8,9 +8,10 @@ package br.com.ecommerce.ecommerce_api.model;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Database {
+public class DataBase {
 
     private Map<Integer, Object> database = new HashMap<>();
+
     private int idSequence = 1;
 
     public void salvarObjeto(Object obj) {

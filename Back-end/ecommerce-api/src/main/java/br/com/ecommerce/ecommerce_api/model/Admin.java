@@ -2,10 +2,10 @@ package br.com.ecommerce.ecommerce_api.model;
 
 /**
  * @author Nícolas Santos
- *
  */
 
 import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
 @Entity
@@ -34,7 +34,7 @@ public class Admin {
     @Column(name = "ultimo_acesso", nullable = false)
     private LocalDate ultimoAcesso;
 
-    @Column (name = "ativo", nullable = false)
+    @Column(name = "ativo", nullable = false)
     private Boolean ativo;
 
     public long getId_admin() {

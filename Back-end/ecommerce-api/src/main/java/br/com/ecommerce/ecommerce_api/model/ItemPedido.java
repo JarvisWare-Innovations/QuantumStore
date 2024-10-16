@@ -17,6 +17,7 @@ public class ItemPedido {
     private int id;
 
     private int quantidade;
+
     private double precoUnitario;
 
     public ItemPedido() {
