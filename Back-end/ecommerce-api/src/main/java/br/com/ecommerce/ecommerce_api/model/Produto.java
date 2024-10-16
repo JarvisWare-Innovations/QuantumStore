@@ -1,9 +1,7 @@
 package br.com.ecommerce.ecommerce_api.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -12,7 +10,7 @@ import java.time.LocalDate;
 public class Produto {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_produto")
     private long id;
 
