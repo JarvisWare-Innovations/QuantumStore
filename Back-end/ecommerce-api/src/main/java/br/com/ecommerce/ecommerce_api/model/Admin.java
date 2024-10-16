@@ -14,7 +14,7 @@ public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_admin")
-    private long id;
+    private Long id;
 
     @Column(name = "nome_admin", nullable = false)
     private String nome;
@@ -41,7 +41,7 @@ public class Admin {
         return id;
     }
 
-    public void setId_admin(long id_admin) {
+    public void setId_admin(Long id) {
         this.id = id;
     }
 
