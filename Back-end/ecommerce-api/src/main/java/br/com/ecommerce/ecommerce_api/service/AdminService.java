@@ -36,14 +36,16 @@ public class AdminService {
         return admin;
     }
 
-    public void delete(Long id) {
-        if (adminRepository.existsById(id)){
+    public String delete(Long id) {
+        if (adminRepository.existsById(id)) {
             adminRepository.deleteById(id);
+            return "Admin excluido com sucesso";
+
         } else {
+
             throw new RuntimeException("Pelo amor de Deus Digite certo essa budega!");
         }
     }
-
 
 
 }
