@@ -69,7 +69,7 @@ public class Pedido {
         this.itens = itens;
     }
 
-    private double calcularTotal() {
+    public double calcularTotal() {
         return itens.stream()
                 .mapToDouble(ItemPedido::calcularSubtotal)
                 .sum();
