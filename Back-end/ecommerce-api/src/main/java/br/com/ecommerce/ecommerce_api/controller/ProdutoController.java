@@ -24,7 +24,7 @@ import br.com.ecommerce.ecommerce_api.service.ProdutoService;
 public class ProdutoController {
 
     @Autowired
-    public ProdutoService produtoService;
+    private ProdutoService produtoService;
 
     @GetMapping
     public List<Produto> obterProduto() {

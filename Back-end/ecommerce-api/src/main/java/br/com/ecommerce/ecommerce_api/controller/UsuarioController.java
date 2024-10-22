@@ -24,7 +24,7 @@ import br.com.ecommerce.ecommerce_api.service.UsuarioService;
 public class UsuarioController {
 
     @Autowired
-    public UsuarioService usuarioService;
+    private UsuarioService usuarioService;
 
     @GetMapping
     public List<Usuario> obterUsuario() {
