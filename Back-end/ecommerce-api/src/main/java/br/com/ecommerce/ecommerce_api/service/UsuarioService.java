@@ -1,13 +1,12 @@
 package br.com.ecommerce.ecommerce_api.service;
 
-import br.com.ecommerce.ecommerce_api.model.Produto;
-import br.com.ecommerce.ecommerce_api.model.Usuario;
-import br.com.ecommerce.ecommerce_api.repository.UsuarioRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.security.PrivateKey;
-import java.util.List;
+import br.com.ecommerce.ecommerce_api.model.Usuario;
+import br.com.ecommerce.ecommerce_api.repository.UsuarioRepository;
 
 /**
  * @author Nícolas Santos
@@ -45,4 +44,6 @@ public class UsuarioService {
             throw new RuntimeException("Este usuário não consta em nosso base de dados, Para de viajar e digita certo o bagulho!");
         }
     }
+
+
 }
