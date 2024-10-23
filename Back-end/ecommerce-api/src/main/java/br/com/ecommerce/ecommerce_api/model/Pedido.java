@@ -1,14 +1,24 @@
 package br.com.ecommerce.ecommerce_api.model;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  * @author Kadu Ribeiro
  *
  */
-
-
-import jakarta.persistence.*;
-import java.util.Date;
-import java.util.List;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "tb_pedidos")
@@ -26,6 +36,10 @@ public class Pedido {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_pedido")
     private List<ItemPedido> itens;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
     public Pedido() {
     }
@@ -69,6 +83,14 @@ public class Pedido {
         this.itens = itens;
     }
 
+    public Usuario getUsuario() {
+        return this.usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     public double calcularTotal() {
         return itens.stream()
                 .mapToDouble(ItemPedido::calcularSubtotal)
@@ -77,8 +99,13 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Pedido{" + "id=" + id + ", dataPedido=" + dataPedido + ", status=" + status + '\'' + ", total ="
-                + calcularTotal() + '}';
+        return "{" +
+                " id='" + getId() + "'" +
+                ", dataPedido='" + getDataPedido() + "'" +
+                ", status='" + getStatus() + "'" +
+                ", itens='" + getItens() + "'" +
+                ", usuario='" + getUsuario() + "'" +
+                "}";
     }
 
 }

@@ -7,6 +7,8 @@ package br.com.ecommerce.ecommerce_api.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
+
 
 @Entity
 public class Usuario {
@@ -40,6 +42,8 @@ public class Usuario {
     @Column(name = "ativo", nullable = false)
     private Boolean ativo;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Pedido> pedidos;
 
     public Usuario() {
         this.dataCadastro = LocalDate.now();
@@ -57,8 +61,9 @@ public class Usuario {
         this.ativo = true;
     }
 
+
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(long id) {
@@ -66,7 +71,7 @@ public class Usuario {
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
@@ -74,7 +79,7 @@ public class Usuario {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -82,7 +87,7 @@ public class Usuario {
     }
 
     public String getSenha() {
-        return senha;
+        return this.senha;
     }
 
     public void setSenha(String senha) {
@@ -90,7 +95,7 @@ public class Usuario {
     }
 
     public String getTelefone() {
-        return telefone;
+        return this.telefone;
     }
 
     public void setTelefone(String telefone) {
@@ -98,7 +103,7 @@ public class Usuario {
     }
 
     public String getCpf() {
-        return cpf;
+        return this.cpf;
     }
 
     public void setCpf(String cpf) {
@@ -106,7 +111,7 @@ public class Usuario {
     }
 
     public String getEndereco() {
-        return endereco;
+        return this.endereco;
     }
 
     public void setEndereco(String endereco) {
@@ -114,33 +119,49 @@ public class Usuario {
     }
 
     public LocalDate getDataCadastro() {
-        return dataCadastro;
+        return this.dataCadastro;
     }
 
     public void setDataCadastro(LocalDate dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
+    public Boolean isAtivo() {
+        return this.ativo;
+    }
+
     public Boolean getAtivo() {
-        return ativo;
+        return this.ativo;
     }
 
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
 
+    public List<Pedido> getPedidos() {
+        return this.pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+
+
     @Override
     public String toString() {
-        return "Usuario{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", cpf=" + cpf +
-                ", endereco='" + endereco + '\'' +
-                ", dataCadastro=" + dataCadastro +
-                ", ativo=" + ativo +
-                '}';
+        return "{" +
+            " id='" + getId() + "'" +
+            ", nome='" + getNome() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", senha='" + getSenha() + "'" +
+            ", telefone='" + getTelefone() + "'" +
+            ", cpf='" + getCpf() + "'" +
+            ", endereco='" + getEndereco() + "'" +
+            ", dataCadastro='" + getDataCadastro() + "'" +
+            ", ativo='" + isAtivo() + "'" +
+            ", pedidos='" + getPedidos() + "'" +
+            "}";
     }
 }
+

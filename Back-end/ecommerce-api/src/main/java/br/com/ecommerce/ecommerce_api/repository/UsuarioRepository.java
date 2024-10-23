@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import br.com.ecommerce.ecommerce_api.model.Usuario;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     Optional<Usuario> findByemail(String email);
 
@@ -17,5 +17,4 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 
     List<Usuario> findByPedidosIsNotNull();
 
-    
 }

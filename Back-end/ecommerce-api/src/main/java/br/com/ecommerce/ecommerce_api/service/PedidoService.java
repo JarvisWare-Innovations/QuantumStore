@@ -19,27 +19,27 @@ public class PedidoService {
     @Autowired
     private PedidoRepository pedidoRepository;
 
-    public Pedido salvarPedido(Pedido pedido){
+    public Pedido salvarPedido(Pedido pedido) {
         return pedidoRepository.save(pedido);
     }
 
-    public Pedido buscarPedido(int id){
+    public Pedido buscarPedido(int id) {
         return pedidoRepository.findById(id).orElse(null);
     }
 
-    public double calcularTotalPedido(Integer id){
+    public double calcularTotalPedido(Integer id) {
         Pedido pedido = pedidoRepository.findById(id).orElse(null);
-        if (pedido != null){
+        if (pedido != null) {
             return pedido.calcularTotal();
         }
         return 0.0;
     }
 
-    public List<Pedido> listarTodos(){
-        return pedidoRepository.findAll();        
+    public List<Pedido> listarTodos() {
+        return pedidoRepository.findAll();
     }
 
-    public void removerPedido(int id){
+    public void removerPedido(int id) {
         pedidoRepository.deleteById(id);
     }
 
