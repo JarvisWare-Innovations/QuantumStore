@@ -2,6 +2,7 @@ package br.com.ecommerce.ecommerce_api.service;
 
 import java.util.List;
 
+import br.com.ecommerce.ecommerce_api.model.ItemPedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,13 +25,13 @@ public class PagamentoService {
 
     }
 
-    public boolean processarPagamento(int id) {
-        Pagamento pagamento = pagamentoRepository.findById(id).orElse(null);
-        if (pagamento != null) {
-            return pagamento.processarPagamento();
-        }
-        return false;
-    }
+//    public boolean processarPagamento(int id) {
+//        Pagamento pagamento = pagamentoRepository.findById(id).orElse(null);
+//        if (pagamento != null) {
+//            return pagamento.processarPagamento();
+//        }
+//        return false;
+//    }
 
     public Pagamento buscarPagamento(int id) {
         return pagamentoRepository.findById(id).orElse(null);
@@ -43,4 +44,13 @@ public class PagamentoService {
    public void removerPagamento(int id){
     pagamentoRepository.deleteById(id);
    }
+
+    public Pagamento update(int id, Pagamento pagamento) {
+        if (pagamentoRepository.existsById(id)) {
+            pagamento.setId(id);
+        } else {
+            throw new RuntimeException("Este Pagamento não consta em nossa basse de dados!");
+        }
+        return pagamento;
+    }
 }
