@@ -2,6 +2,7 @@ package br.com.ecommerce.ecommerce_api.service;
 
 import java.util.List;
 
+import br.com.ecommerce.ecommerce_api.model.Pagamento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +42,15 @@ public class PedidoService {
 
     public void removerPedido(int id){
         pedidoRepository.deleteById(id);
+    }
+
+    public Pedido update(int id, Pedido pedido) {
+        if (pedidoRepository.existsById(id)) {
+            pedido.setId(id);
+        } else {
+            throw new RuntimeException("Este Pedido não consta em nossa basse de dados!");
+        }
+        return pedido;
     }
 
 }

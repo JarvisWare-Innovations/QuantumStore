@@ -18,6 +18,7 @@ public class Pagamento {
     private int id;
 
     private String metodoPagamento;
+
     private String statusPagamento;
 
     public Pagamento() {
@@ -52,16 +53,17 @@ public class Pagamento {
         this.statusPagamento = statusPagamento;
     }
 
-    public boolean processarPagamento (){
-        if ("PAGO".equalsIgnoreCase(statusPagamento)) {
-            System.out.println("Pagamento já foi relizado.");
-            return false;
-        } else {
-            statusPagamento = "PAGO";
-            System.out.println("Pagamento realizado com sucesso.");
-            return true;
-        }
-    }
+
+//    public boolean processarPagamento (){
+//        if ("PAGO".equalsIgnoreCase(statusPagamento)) {
+//            System.out.println("Pagamento já foi relizado.");
+//            return false;
+//        } else {
+//            statusPagamento = "PAGO";
+//            System.out.println("Pagamento realizado com sucesso.");
+//            return true;
+//        }
+//    }
 
 @Override
 public String toString() {
