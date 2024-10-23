@@ -2,7 +2,6 @@ package br.com.ecommerce.ecommerce_api.service;
 
 import java.util.List;
 
-import br.com.ecommerce.ecommerce_api.model.Produto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
